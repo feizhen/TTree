@@ -1,16 +1,5 @@
 ### TTree
 
-<style>
-.tree-demo {
-  height: 600px;
-  padding: 0;
-  margin-bottom: 30px;
-}
-.tree-row {
-  margin-top: 30px;
-}
-</style>
-
 ### 数据结构
 
 ```ts
