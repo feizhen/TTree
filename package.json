@@ -1,0 +1,53 @@
+{
+  "name": "ttree",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.es5.js",
+  "typings": "dist/types/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "jest --watch",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "rollup": "^2.28.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.2",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "ts-jest": "^26.4.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  }
+}
