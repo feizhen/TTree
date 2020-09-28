@@ -1,3 +1,3 @@
-import TreeManager from "./lib/TreeManager";
+import TreeManager from "./libs/TreeManager";
 
 export default TreeManager;
