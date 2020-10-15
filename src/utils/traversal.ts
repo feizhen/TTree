@@ -4,7 +4,8 @@ import TreeNode, {
   TreeNodeType,
 } from "../libs/TreeNode";
 
-import { cloneDeep } from "lodash";
+import { cloneDeep as _cloneDeep } from "lodash";
+import EventEmitter from "../libs/EventEmitter";
 
 export interface TraversalConfig {
   idKey: string;
@@ -22,7 +23,7 @@ export function traversal<T>(
   originData: any,
   config: TraversalConfig = { idKey: "id", childKey: "children" }
 ) {
-  const data = cloneDeep(originData);
+  const data = _cloneDeep(originData);
 
   const nodeMap = new Map<string, TreeNode>();
 
@@ -52,6 +53,9 @@ export function traversal<T>(
     };
     const customData = node;
 
+    // TODO: 添加一个eventBus，尝试和子节点建立通信信道
+    const eventBus = new EventEmitter();
+
     // 判断节点类型：root | node | leaf
     if (root) {
       type = "root";
@@ -62,6 +66,7 @@ export function traversal<T>(
       type = "leaf";
     }
 
+    // 递归处理子节点
     if (hasChild) {
       children = node[config.childKey].map((subNode: any) => {
         const childNode = parseNode(subNode, config, level + 1);

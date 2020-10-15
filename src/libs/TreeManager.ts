@@ -7,6 +7,13 @@ class TreeManager {
   leafMap!: Map<string, TreeNode>;
   nodeLeafMap!: Map<string, TreeNode>;
 
+  /**
+   * 加载数据, 构建 TreeNode
+   * @param {*} data
+   * @param {TraversalConfig} [config={ idKey: "id", childKey: "children" }]
+   * @return {*}
+   * @memberof TreeManager
+   */
   async loadData(
     data: any,
     config: TraversalConfig = { idKey: "id", childKey: "children" }

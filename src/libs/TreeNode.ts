@@ -106,13 +106,13 @@ class TreeNode {
   /**
    * 勾选/反选节点
    * @param {boolean} value 是否勾选/反选
-   * @param {boolean} [deep=true] 是否递归勾选/反选子节点
+   * @param {{deep: boolean}} [{deep:true}] 是否递归勾选/反选子节点
    * @memberof TreeNode
    */
-  setSelect(value: boolean, deep: boolean = true) {
+  setSelect(value: boolean, config: { deep: boolean } = { deep: true }) {
     this.selected = value;
-    if (deep) {
-      this.children.forEach((child) => child.setSelect(value));
+    if (config.deep) {
+      this.children.forEach((child) => child.setSelect(value, config));
     }
   }
 
